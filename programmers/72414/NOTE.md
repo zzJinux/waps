@@ -1,0 +1,2 @@
+- (my method) Make use of F(b) - F(a)
+- (easiest method) Do DP. 3600*100 is the maximum timestamp. Calculate for every possible window

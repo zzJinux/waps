@@ -1,0 +1,4 @@
+- The task is equivalent to find, for each i-th element, the first element on the right side that has a smaller value.
+- Let the index of such an element as `A(i)`. Definitely the elements, indices of which are `i+1`, ..., `A(i)-1`, are bigger than `prices[i]`.
+- Walking backward along the `prices`, for each newly visited element, elements on the right bigger than the visited are no use.
+- Note that the value of `prices[N-1]` does not matter.

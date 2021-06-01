@@ -1,0 +1,5 @@
+{
+    "java.project.referencedLibraries": [
+        "cp_java/lib/gson-2.8.6.jar"
+    ]
+}
