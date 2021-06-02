@@ -35,12 +35,13 @@ gen() {
 }
 
 e() {
-  setup_vars
-  $myvi `realpath --relative-to=. "$abs_sol"`
+  setup_vars && \
+    $myvi `realpath -m --relative-to=. "$abs_sol"`
 }
 g() {
-  setup_vars
-  (builtin cd "$CPROOT/runner/$lang" && TYPE=$RUNTYPE exec ./run.sh $abs_sol $abs_ts)
+  setup_vars && \
+    [ -e "$abs_sol" ]
+    (builtin cd "$CPROOT/runner/$lang" && TYPE=$RUNTYPE exec ./run.sh $abs_sol $abs_ts)
 }
 
 setup_vars() {
@@ -54,12 +55,8 @@ setup_vars() {
     return 1
   fi
 
-  ssol="${sol%*.$lang}.$lang"
-  if ! [ -f "$ssol" ]; then
-    echo "file '$ssol' not found" >&2
-    return 1
-  fi
-  abs_sol=`realpath -e $ssol`
+  local ssol="${sol%*.$lang}.$lang"
+  abs_sol=`realpath -m $ssol`
 
   if ! [ $ts ]; then
     abs_ts=
