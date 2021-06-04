@@ -26,7 +26,7 @@ CPROOT="$(builtin cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && builtin 
 myvi=nvim
 
 gen() {
-  if [ $RUNTYPE == "json" ]; then
+  if [ $RUNTYPE != "json" ]; then
     setup_vars
     if ! [ -e "$abs_sol" ]; then
       cp "$CPROOT/runner/$lang/template/tpl.$lang" "$abs_sol";
