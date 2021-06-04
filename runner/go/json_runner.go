@@ -11,7 +11,7 @@ import (
 
 type testcase struct {
 	inputs [][]byte
-	output []byte
+	answer []byte
 }
 
 
@@ -79,10 +79,15 @@ func main() {
 			rf_in[i] = reflect.ValueOf(v)
 		}
 
-		rf_result := rf_solution.Call(rf_in)
-		ans := rf_result[0].Interface()
+		var answer interface{}
+		customUnmarshal(tcase.answer, &answer, rf_solution.Type().Out(0))
 
-		fmt.Printf("[    Your answer] %v\n", ans)
-		fmt.Printf("[Expected answer] %s\n", string(tcase.output))
+		result := rf_solution.Call(rf_in)[0].Interface()
+
+		resultJSON, _ := json.Marshal(result)
+		answerJSON, _ := json.Marshal(answer)
+
+		fmt.Printf("[    Your answer] %v\n", string(resultJSON))
+		fmt.Printf("[Expected answer] %s\n", string(answerJSON))
 	}
 }
