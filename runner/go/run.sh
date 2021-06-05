@@ -11,6 +11,6 @@ else
   if ! [ $2 ]; then
     go run "$1"
   else
-    <"$2" go run "$1"
+    ../splitrun.sh "$2" go run "$1"
   fi
 fi
