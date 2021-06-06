@@ -6,6 +6,6 @@ if [ "$TYPE" == "json" ]; then
 else
   mkdir -p out
   out="out/a.out"
-  g++ -std=c++17 -O1 -g -fsanitize=address -fno-omit-frame-pointer $1 -o "$out" \
+  g++ -std=c++17 -O1 -g -Wall -lm -fsanitize=address -fno-omit-frame-pointer $1 -o "$out" \
     && if [ "$2" ]; then ../splitrun.sh "$2" "$out"; else "$out"; fi
 fi
