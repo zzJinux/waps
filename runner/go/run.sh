@@ -2,13 +2,13 @@
 
 if [ "$TYPE" == "json" ]; then
   <<<'package main' >solution.go cat - "$1"
-  if ! [ $2 ]; then
+  if ! [ "$2" ]; then
     go run .
   else
-    go run . $2
+    go run . "$2"
   fi
 else
-  if ! [ $2 ]; then
+  if ! [ "$2" ]; then
     go run "$1"
   else
     ../splitrun.sh "$2" go run "$1"
