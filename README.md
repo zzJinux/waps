@@ -36,23 +36,23 @@ gen  # generate from the template
 1st case input line 0
 1st case input line 1
 (... more)
-@@@
+═════
 1st case output line 0
 1st case output line 1
 (... more)
----
+─────
 2nd case input line 0
 2nd case input line 1
 (... more)
-@@@
+═════
 2nd case output line 0
 2nd case output line 1
 (... more)
----
+─────
 last case input line 0
 last case input line 1
 (... more)
-@@@
+═════
 last case output line 0
 last case output line 1
 (... more)
