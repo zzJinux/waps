@@ -4,7 +4,6 @@ Go (`go`), Java (`java`)
 . init.sh [pr|lc|json]
 
 lang=<lang> # name of the language to use
-pro=<name>  # name of a problem
 sol=<sol>   # name of a solution code
 ts=<inp>    # name of an input (testcases) file (If omitted, manually input)
 
@@ -22,7 +21,6 @@ Go (`go`), C++ (`cpp`)
 . init.sh [boj|cf|plain]
 
 lang=<lang>
-pro=<name>
 sol=<sol>
 ts=<inp>
 
