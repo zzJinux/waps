@@ -29,7 +29,11 @@ gen() {
   if [ $RUNTYPE != "json" ]; then
     setup_vars
     if ! [ -e "$abs_sol" ]; then
-      cp "$CPROOT/runner/$lang/template/tpl.$lang" "$abs_sol";
+      cp "$CPROOT/runner/$lang/template/tpl${1:+_${1}}.$lang" "$abs_sol";
+    fi
+  else
+    if [ "$lang" = "cpp" ] && [ "$1" = "ts" ]; then
+      cp -n "$CPROOT/runner/$lang/template/tpl${1:+_${1}}.$lang" "ts.cpp";
     fi
   fi
 }
