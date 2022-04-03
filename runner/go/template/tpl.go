@@ -14,16 +14,14 @@ func scan(a ...interface{}) (int, error) { return fmt.Fscan(reader, a...) }
 func scanln(a ...interface{}) (int, error) { return fmt.Fscanln(reader, a...) }
 func scanf(f string, a ...interface{}) (int, error) { return fmt.Fscanf(reader, f, a...) }
 
-func solve() {
+func solve(tc int) {
 	defer flush()
 }
 
 func main() {
-	// defer flush()
 	var tc int
-	scanf("%d", &tc)
-	// tc = 1
-	for ; tc>0; tc-- {
-		solve()
+	scanf(&tc)
+	for i:=1; i<=tc; i++ {
+		solve(i)
 	}
 }
